@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "surrealpy-async"
+version = "0.0.1"
+description = ""
+authors = ["furimu"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pydantic = "^2.8.2"
+aiohttp = "^3.10.3"
+
+
+[tool.poetry.group.dev.dependencies]
+python-dotenv = "^1.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
