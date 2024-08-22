@@ -23,22 +23,6 @@ class Column(BaseModel, Generic[T]):
     def __str__(self):
         return str(self.get_value())
 
-    def plus_value(self, new_value: T) -> Self:
-        """valueに値を設定する。型ヒントが欲しい時用
-
-        Parameters
-        ----------
-        new_value : T
-            設定する値
-
-        Returns
-        -------
-        Self
-            インスタンス
-        """
-        self.value += new_value
-        return self
-
     def set_value(self, new_value: T) -> Self:
         """valueに値を設定する。型ヒントが欲しい時用
 
@@ -86,7 +70,7 @@ class Column(BaseModel, Generic[T]):
             self.value = [new_value]
         else:
             self.value.append(new_value)
-            return self.value
+        return self.value
 
     def remove_value(self, new_value: T) -> list[T]:
         """値をリストから削除する。
@@ -94,17 +78,16 @@ class Column(BaseModel, Generic[T]):
         Parameters
         ----------
         new_value : T
-            削除する値 
+            削除する値
 
         Returns
         -------
         list[T]
         """
 
-        
         if not isinstance(self.value, list):
             self.value = []
 
         else:
             self.value.remove(new_value)
-            return self.value
+        return self.value
